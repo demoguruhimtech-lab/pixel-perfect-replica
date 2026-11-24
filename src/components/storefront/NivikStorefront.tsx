@@ -283,7 +283,7 @@ function ProductCard({
     <motion.article
       layout
       className="group min-w-0"
-      whileHover={useReducedMotion() ? undefined : { y: -4 }}
+      {...(useReducedMotion() ? {} : { whileHover: { y: -4 } })}
       transition={{ duration: 0.22 }}
     >
       <div className="relative overflow-hidden bg-cream">
@@ -654,7 +654,7 @@ export default function NivikStorefront() {
             key={announcementIndex}
             initial={shouldReduceMotion ? false : { opacity: 0, y: 5 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={shouldReduceMotion ? undefined : { opacity: 0, y: -5 }}
+            {...(shouldReduceMotion ? {} : { exit: { opacity: 0, y: -5 } })}
             transition={{ duration: 0.22 }}
             aria-live="polite"
           >
@@ -1241,7 +1241,7 @@ export default function NivikStorefront() {
             key="store-toast"
             initial={shouldReduceMotion ? false : { opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={shouldReduceMotion ? undefined : { opacity: 0, y: 8 }}
+            {...(shouldReduceMotion ? {} : { exit: { opacity: 0, y: 8 } })}
             className="fixed bottom-5 left-1/2 z-[80] max-w-[calc(100vw-2rem)] -translate-x-1/2 border border-cream bg-soft-white px-5 py-3 text-sm text-forest-green shadow-lg"
             role="status"
             aria-live="polite"
